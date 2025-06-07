@@ -1,25 +1,27 @@
-import { Box, Divider, Typography, AppBar, Toolbar, Avatar, TextField, InputAdornment, SpeedDial, SpeedDialAction, SpeedDialIcon } from '@mui/material';
+import { Box, Divider, SpeedDial } from '@mui/material';
 import { CakeBoardData } from "../types/CakeBoardData";
 import { CakeBoard } from '../components/CakeBoard/CakeBoard';
-import { SearchProvider, useSearch } from '../contexts/SearchContext/SearchContext';
-import CakeIcon from '@mui/icons-material/Cake';
+import { SearchProvider } from '../contexts/SearchContext/SearchContext';
 import { Marquee } from '../components/Marquee/Marquee';
+import { ReactElement } from 'react';
 
 type CakeFactoryProps = {
   name: string,
   logoUrl: string,
   showSearchBar: boolean,
-  showFloatingButton: boolean
+  searchBarPlaceholder?: string,
+  children: ReactElement<typeof SpeedDial>,
   cakeBoards: CakeBoardData[];
 };
 
-function CakeFactoryContent({ name, logoUrl, showSearchBar, showFloatingButton, cakeBoards }: CakeFactoryProps) {
+function CakeFactoryContent({ name, logoUrl, showSearchBar, searchBarPlaceholder, children, cakeBoards }: CakeFactoryProps) {
   return (
     <Box>
       <Marquee 
         name={name}
         logoUrl={logoUrl}
         showSearchBar={showSearchBar}
+        searchBarPlaceholder={searchBarPlaceholder}
       />
       {cakeBoards.map((board, index) => (
         <Box key={index}>
@@ -27,32 +29,7 @@ function CakeFactoryContent({ name, logoUrl, showSearchBar, showFloatingButton, 
           {index < cakeBoards.length - 1 && <Divider variant="middle" />}
         </Box>
       ))}
-      {showFloatingButton && (
-        <SpeedDial
-          ariaLabel="Floating Action Button"
-          sx={{
-            position: 'fixed',
-            bottom: 16,
-            right: 16
-          }}
-          FabProps={{
-            sx: (theme) => ({
-              backgroundColor: theme.palette.secondary.main,
-              color: theme.palette.text.secondary,
-              '&:hover': {
-                backgroundColor: theme.palette.secondary.dark,
-              }
-            })
-          }}
-          icon={<SpeedDialIcon />}
-        >
-          <SpeedDialAction
-            icon={<CakeIcon />}
-            tooltipTitle="Order Cake"
-            onClick={() => alert('Order Cake')}
-          />
-        </SpeedDial>
-      )}
+      {children}
     </Box>
   );
 }

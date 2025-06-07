@@ -7,9 +7,10 @@ type MarqueeProps = {
   name: string,
   logoUrl?: string,
   showSearchBar?: boolean;
+  searchBarPlaceholder?: string;
 };
 
-export const Marquee = ({ name, logoUrl, showSearchBar }: MarqueeProps) => {
+export const Marquee = ({ name, logoUrl, showSearchBar, searchBarPlaceholder }: MarqueeProps) => {
   const { query, setQuery } = useSearch();
 
   const scrollToTop = () => {
@@ -35,7 +36,17 @@ export const Marquee = ({ name, logoUrl, showSearchBar }: MarqueeProps) => {
             <Avatar 
               src={logoUrl}
               sx={(theme) => ({ 
-                bgcolor: !logoUrl ? theme.palette.secondary.main : 'transparent', 
+                bgcolor: !logoUrl ? theme.palette.secondary.main : 'transparent',
+                width: {
+                  xs: '3.3rem',
+                  sm: '3.5rem',
+                  md: '3.7rem'
+                },
+                height: {
+                  xs: '3.3rem',
+                  sm: '3.5rem',
+                  md: '3.7rem'
+                }
               })}
             >
               <CakeIcon sx={(theme) => ({ color: theme.palette.text.secondary })} />
@@ -57,7 +68,7 @@ export const Marquee = ({ name, logoUrl, showSearchBar }: MarqueeProps) => {
           </Box>
           {showSearchBar && (
             <TextField
-              placeholder="Buscar sabor..."
+              placeholder={searchBarPlaceholder || "Search..."}
               size="small"
               onChange={e => setQuery(e.target.value)}
               sx={{
