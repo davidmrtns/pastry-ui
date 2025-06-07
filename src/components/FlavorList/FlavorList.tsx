@@ -1,5 +1,8 @@
+import React from 'react';
 import { Box, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import Highlighter from '../Highlighter/Highlighter';
+import { useSearch } from '../../contexts/SearchContext/SearchContext';
 
 type FlavorListProps = {
   flavors: string[];
@@ -8,6 +11,7 @@ type FlavorListProps = {
 const MAX_COLUMNS = 2;
 
 export const FlavorList = ({ flavors }: FlavorListProps) => {
+  const { query, setQuery } = useSearch();
   const itemsPerColumn = Math.ceil(flavors.length / MAX_COLUMNS);
 
   const columns = Array.from({ length: MAX_COLUMNS }, (_, i) =>
@@ -27,18 +31,19 @@ export const FlavorList = ({ flavors }: FlavorListProps) => {
           xs: 'space-between',
           sm: 'space-between',
           md: 'center'
-        }
+        },
+        padding: "15px"
       }}
     >
       {columns.map((col, colIndex) => (
         <List key={colIndex} dense disablePadding>
           {col.map((flavor, i) => (
-            <ListItem key={i} disableGutters sx={{ py: 0.1 }}>
+            <ListItem key={i} disableGutters sx={{ py: 0 }}>
               <ListItemIcon sx={{ minWidth: 20 }}>
                 <FiberManualRecordIcon sx={{ fontSize: 6 }} />
               </ListItemIcon>
               <ListItemText 
-                primary={flavor}
+                primary={<Highlighter text={flavor} query={query} />}
                 slotProps={{
                   primary: {
                     fontSize: {

@@ -1,6 +1,6 @@
 import { Price } from "./Price";
 
-export type Cake = {
+export type CakeFormat = {
   size: string;
   price: Price;
 }

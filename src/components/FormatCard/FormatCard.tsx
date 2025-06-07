@@ -10,37 +10,31 @@ type FormatCardProps = {
 export const FormatCard = ({ size, price, borderType = 'square' }: FormatCardProps) => {
   return (
     <Card 
-      sx={{ 
-        backgroundColor: '#ac1456',
-        color: '#fff',
+      sx={(theme) => ({ 
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.text.secondary,
         border: 1,
         borderColor: '#000000',
         borderRadius: borderType === 'round' ? '50px' : 0,
-        minWidth: {
-          xs: '5%',
-          sm: '',
-          md: '10%'
-        },
-        maxWidth: {
+        width: {
           xs: '20%',
-          sm: '',
-          md: '20%'
+          sm: '30%',
+          md: '15%'
         },
-        textAlign: 'center',
-        padding: 1
-      }}
+        textAlign: 'center'
+      })}
     >
       <CardContent
         sx={{ 
           '&:last-child': {
             paddingBottom: {
-              xs: '4px',
+              xs: '6px',
               sm: '16px',
               md: '16px'
             },
           },
           padding: {
-            xs: '4px',
+            xs: '6px',
             sm: '16px',
             md: '16px'
           }
@@ -51,9 +45,9 @@ export const FormatCard = ({ size, price, borderType = 'square' }: FormatCardPro
             fontWeight: 'bold',
             fontStyle: 'italic',
             fontSize: {
-              xs: '0.7rem',
+              xs: '0.85rem',
               sm: '1.2rem',
-              md: '1em'
+              md: '1.6rem'
             }
           }}
         >
@@ -62,9 +56,9 @@ export const FormatCard = ({ size, price, borderType = 'square' }: FormatCardPro
         <Typography variant='h5'
           sx={{ 
             fontSize: {
-              xs: '0.7rem',
+              xs: '0.8rem',
               sm: '1.2rem',
-              md: '1em'
+              md: '1.6rem'
             }
           }}
         >

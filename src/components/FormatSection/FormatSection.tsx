@@ -25,10 +25,10 @@ export const FormatSection = ({ name, children }: FormatSectionProps) => {
     >
       <Box
         sx={{ 
-          maxWidth: {
+          width: {
             xs: '15%',
             sm: '30%',
-            md: '40%'
+            md: '15%'
           }
         }}
       >
@@ -37,7 +37,7 @@ export const FormatSection = ({ name, children }: FormatSectionProps) => {
             fontSize: {
               xs: '0.6rem',
               sm: '1.2rem',
-              md: '1em'
+              md: '1.4rem'
             },
             fontWeight: "bold" 
           }}
