@@ -33,7 +33,20 @@ export const CakeBoard = ({ boardData }: CakeBoardProps) => {
           {boardData.name}
         </Typography>
       }
-      <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', marginBottom: 1.5, gap: 2, paddingTop: 2 }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          marginBottom: 1.5,
+          gap: 2,
+          paddingTop: {
+            xs: 1,
+            sm: 2,
+            md: 2
+          }
+        }}
+      >
         {boardData.roundFormats && 
           <FormatSection name="Formato redondo">
             {boardData.roundFormats.map((cake) => (
