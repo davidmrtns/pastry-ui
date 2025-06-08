@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import Highlighter from '../Highlighter/Highlighter';
+import { Highlighter } from '../Highlighter/Highlighter';
 import { useSearch } from '../../contexts/SearchContext/SearchContext';
 
 type FlavorListProps = {

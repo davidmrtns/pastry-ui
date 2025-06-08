@@ -1,3 +1,5 @@
+import { Reference } from "@/src/types/Reference";
+import { ReferenceHeader } from "@/src/types/ReferenceHeader";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Box } from "@mui/material";
 
 type ReferenceTableProps = {

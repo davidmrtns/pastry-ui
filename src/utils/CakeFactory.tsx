@@ -5,6 +5,7 @@ import { SearchProvider } from '../contexts/SearchContext/SearchContext';
 import { Marquee } from '../components/Marquee/Marquee';
 import { ReactElement } from 'react';
 import { ReferenceTable } from '../components/ReferenceTable/ReferenceTable';
+import { Reference } from '../types/Reference';
 
 type CakeFactoryProps = {
   name: string,
@@ -37,7 +38,7 @@ function CakeFactoryContent({ name, logoUrl, showSearchBar, searchBarPlaceholder
   );
 }
 
-export default function CakeFactory(props: CakeFactoryProps) {
+export function CakeFactory(props: CakeFactoryProps) {
   return(
     <SearchProvider>
       <CakeFactoryContent {...props} />

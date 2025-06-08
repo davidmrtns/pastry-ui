@@ -3,7 +3,7 @@ type HighlighterProps = {
   query: string;
 };
 
-const Highlighter = ({ text, query }: HighlighterProps) => {
+export const Highlighter = ({ text, query }: HighlighterProps) => {
   if (!query) return <>{text}</>;
 
   const parts = text.split(new RegExp(`(${query})`, 'gi'));
@@ -22,5 +22,3 @@ const Highlighter = ({ text, query }: HighlighterProps) => {
     </>
   );
 };
-
-export default Highlighter;

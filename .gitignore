@@ -39,5 +39,8 @@ lib/*.js
 test/*.js
 *.map
 
+# Dist directory
+dist/
+
 # Playground files
 playground/

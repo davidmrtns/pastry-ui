@@ -4,7 +4,7 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "target": "ESNext",
+    "target": "es2020",
     "module": "ESNext",
     "moduleResolution": "Node",
     "declaration": true,

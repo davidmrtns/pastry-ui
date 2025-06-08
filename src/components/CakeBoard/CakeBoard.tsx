@@ -49,15 +49,15 @@ export const CakeBoard = ({ boardData }: CakeBoardProps) => {
       >
         {boardData.roundFormats && 
           <FormatSection name="Formato redondo">
-            {boardData.roundFormats.map((cake) => (
-              <FormatCard size={cake.size} price={cake.price} borderType='round' />
+            {boardData.roundFormats.map((cake, index) => (
+              <FormatCard key={`rd${index}`} size={cake.size} price={cake.price} borderType='round' />
             ))}
           </FormatSection>
         }
         {boardData.squareFormats && 
           <FormatSection name="Formato retangular">
-            {boardData.squareFormats.map((cake) => (
-              <FormatCard size={cake.size} price={cake.price} borderType='square' />
+            {boardData.squareFormats.map((cake, index) => (
+              <FormatCard key={`sq${index}`} size={cake.size} price={cake.price} borderType='square' />
             ))}
           </FormatSection>
         }
